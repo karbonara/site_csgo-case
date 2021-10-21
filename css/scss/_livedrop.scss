@@ -1,0 +1,251 @@
+.live-drop-box {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 147px;
+    padding-bottom: 35px;
+    margin: 0 auto;
+
+    @include s-max(x1200) {
+        padding-bottom: 0;
+        height: 112px;
+    }
+
+    .live-drop-items {
+        position: relative;
+        display: inline-flex;
+        height: 112px;
+        padding: 0;
+        margin: 0;
+
+        li {
+            position: relative;
+            display: block;
+            width: 170px;
+            max-width:33vw;
+
+            .item {
+                position: relative;
+                display: block;
+                width: 100%;
+                height: 112px;
+
+                .img {
+                    position: relative;
+                    display: flex;
+                    width: 100%;
+                    max-width: 144px;
+                    height: inherit;
+                    padding: 35px 10px 10px;
+                    align-items: center;
+                    justify-content: center;
+                    z-index: 3;
+                    pointer-events: none;
+
+                    @include s-max(x1200) {
+                        padding-top: 25px;
+                    }
+
+                    img {
+                        position: relative;
+                        display: block;
+                        max-width: 100%;
+                        height: auto;
+                    }
+                }
+
+                &.grade-1 {
+                    &:before {
+                        content: '';
+                        position: absolute;
+                        display: block;
+                        width: 100%;
+                        height: 207px;
+                        pointer-events: none;
+                        background: url("../img/live-blue.png") no-repeat center top;
+                        top: 0;
+                        left: 0;
+                        z-index: 1;
+                    }
+
+                    &:after {
+                        content: '';
+                        position: absolute;
+                        display: block;
+                        width: 32px;
+                        height: 5px;
+                        @include rad(2px);
+                        top: 20px;
+                        left: 0;
+                        right: 0;
+                        margin: auto;
+                        background: #1144d9;
+                        z-index: 4;
+                        pointer-events: none;
+                    }
+                }
+
+                &.grade-2 {
+                    &:before {
+                        content: '';
+                        position: absolute;
+                        display: block;
+                        width: 100%;
+                        height: 207px;
+                        pointer-events: none;
+                        background: url("../img/live.png") no-repeat center top;
+                        top: 0;
+                        left: 0;
+                    }
+
+                    &:after {
+                        content: '';
+                        position: absolute;
+                        display: block;
+                        width: 32px;
+                        height: 5px;
+                        @include rad(5px);
+                        top: 20px;
+                        left: 0;
+                        right: 0;
+                        margin: auto;
+                        background: #d61212;
+                    }
+                }
+
+                &.grade-3 {
+                    &:before {
+                        content: '';
+                        position: absolute;
+                        display: block;
+                        width: 100%;
+                        height: 207px;
+                        pointer-events: none;
+                        background: url("../img/live-purple.png") no-repeat center top;
+                        top: 0;
+                        left: 0;
+                    }
+
+                    &:after {
+                        content: '';
+                        position: absolute;
+                        display: block;
+                        width: 32px;
+                        height: 5px;
+                        @include rad(5px);
+                        top: 20px;
+                        left: 0;
+                        right: 0;
+                        margin: auto;
+                        background: #770bca;
+                    }
+                }
+
+                @include s-max(x1200) {
+                    &:after {
+                        top: 15px !important;
+                    }
+                }
+
+                .sub {
+                    position: absolute;
+                    display: block;
+                    width: 100%;
+                    padding: 112px 5px 5px;
+                    background: #16191d;
+                    top: 0;
+                    left: 0;
+                    z-index: 2;
+                    @include transition(0.2s);
+                    transform: translateY(20px);
+                    opacity: 0;
+                    visibility: hidden;
+                    pointer-events: none;
+
+                    .title {
+                        position: relative;
+                        display: block;
+                        width: 100%;
+                        text-align: center;
+                        text-overflow: ellipsis;
+                        overflow: hidden;
+                        white-space: nowrap;
+                        color: #fff;
+                        font-size: 16px;
+                        font-weight: 500;
+                        margin: 0 auto 5px;
+                        z-index: 1;
+                    }
+
+                    .case {
+                        position: relative;
+                        display: flex;
+                        width: 100%;
+                        max-width: 124px;
+                        margin: 0 auto;
+                        height: 100px;
+                        align-items: center;
+                        justify-content: center;
+
+                        img {
+                            position: relative;
+                            display: block;
+                            max-width: 100%;
+                            height: auto;
+                        }
+                    }
+
+                    .user {
+                        position: relative;
+                        display: flex;
+                        width: 100%;
+                        z-index: 1;
+                        align-items: center;
+                        margin: 5px auto 0;
+                        justify-content: center;
+
+                        .avatar {
+                            position: relative;
+                            display: flex;
+                            width: 40px;
+                            height: 40px;
+                            @include rad(50%);
+                            overflow: hidden;
+                            align-items: center;
+                            justify-content: center;
+                            flex: none;
+
+                            img {
+                                position: relative;
+                                display: block;
+                                width: 100%;
+                                height: auto;
+                                min-height: 100%;
+                            }
+                        }
+
+                        .name {
+                            position: relative;
+                            display: block;
+                            max-width: 100%;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            white-space: nowrap;
+                            color: #fff;
+                            font-size: 12px;
+                        }
+                    }
+                }
+
+                &:hover {
+                    .sub {
+                        visibility: visible;
+                        opacity: 1;
+                        transform: translateY(0px);
+                        pointer-events: visible;
+                    }
+                }
+            }
+        }
+    }
+}
